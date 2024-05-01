@@ -99,10 +99,10 @@
             //                           | RSE | SPC | LWR |   | LWR | BKSP | RSE |
 
             bindings = <
-&kp ESC  &kp TAB           &kt Q  &kp W  &kp E         &kp R             &kp T          &kp Y        &kp U  &kp I      &kp O    &kp P          &kp LBKT       &kp BACKSPACE
-         &kp LEFT_SHIFT    &kp A  &kp S  &kp D         &kp F             &kp G          &kp H        &kp J  &kp K      &kp L    &kp SEMICOLON  &kp SQT
-         &kp LEFT_CONTROL  &kp Z  &kp X  &kp C         &kp V             &kp B          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &kp BACKSLASH
-                                         &kp LEFT_ALT  &kp LEFT_COMMAND  &lt 1 SPACE    &lt 1 ENTER  &none  &none
+&kp ESC  &kp TAB           &kt Q  &kp W  &kp E         &kp R             &kp T          &kp Y        &kp U            &kp I         &kp O    &kp P          &kp LBKT       &kp BACKSPACE
+         &kp LEFT_SHIFT    &kp A  &kp S  &kp D         &kp F             &kp G          &kp H        &kp J            &kp K         &kp L    &kp SEMICOLON  &kp SQT
+         &kp LEFT_CONTROL  &kp Z  &kp X  &kp C         &kp V             &kp B          &kp N        &kp M            &kp COMMA     &kp DOT  &kp FSLH       &kp BACKSLASH
+                                         &kp LEFT_ALT  &kp LEFT_COMMAND  &lt 1 SPACE    &lt 1 ENTER  &lt 2 BACKSPACE  &lt 3 DELETE
             >;
         };
 
@@ -116,10 +116,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &trans  &kp F1    &kp F2        &kp F3        &kp F4    &kp F5       &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11          &trans
-        &trans  &kp EXCL  &kp AT        &kp HASH      &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &mt RCTRL MINUS
-        &trans  &kp N1    &kp NUMBER_2  &kp NUMBER_3  &kp N4    &kp N5       &kp N6     &kp N7    &kp N8    &kp N9    &kp N0    &none
-                                        &trans        &trans    &trans       &trans     &trans    &trans
+&trans  &trans  &none      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &none   &none           &none           &none         &none            &none  &trans
+        &trans  &none      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL       &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &none
+        &trans  &kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS       &none   &none           &none           &none         &none            &none
+                                         &trans        &trans        &trans          &trans  &trans          &trans
             >;
         };
 
@@ -152,42 +152,8 @@
             bindings = <
 &sys_reset  &bootloader   &none         &none              &none         &none         &none           &none         &none         &none         &none              &none         &bootloader   &sys_reset
             &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1       &bt BT_SEL 0  &bt BT_CLR
-            &out OUT_TOG  &tog 4        &ext_power EP_TOG  &none         &none         &none           &none         &none         &none         &ext_power EP_TOG  &tog 4        &out OUT_TOG
+            &out OUT_TOG  &tog 0        &ext_power EP_TOG  &none         &none         &none           &none         &none         &none         &ext_power EP_TOG  &tog 0        &out OUT_TOG
                                                            &trans        &none         &trans          &trans        &none         &trans
-            >;
-        };
-
-        gaming_layer {
-            label = "GAME";
-
-            // -----------------------------------------------------------------------------------------
-            // |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | GUI/] |
-            //        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |CTRL/'|
-            //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
-            //                           | RSE | SPC | LWR |   | LWR | BKSP | RSE |
-
-            bindings = <
-&kp TAB  &kp RET    &kp Q  &kp W  &kp E      &kp R      &kp T    &kp Y    &kp U      &kp I      &kp O    &kp P     &kp BSPC       &mt RWIN RBKT
-         &kp LCTRL  &kp A  &kp S  &kp D      &kp F      &kp G    &kp H    &kp J      &kp K      &kp L    &kp SEMI  &mt RCTRL SQT
-         &kp LALT   &kp Z  &kp X  &kp C      &kp V      &kp B    &kp N    &kp M      &kp COMMA  &kp DOT  &tog 4    &mt RALT BSLH
-                                  &kp SPACE  &kp LSHFT  &mo 5    &kp ESC  &kp RSHFT  &kp DEL
-            >;
-        };
-
-        gaming_lower_layer {
-            label = "GNUM";
-
-            // -----------------------------------------------------------------------------------------
-            // |     |  _  |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
-            //       |  +  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
-            //       |  =  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&trans  &kp GRAVE       &kp F8  &kp F9  &kp F10  &kp F4  &kp F5    &kp F6     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11          &mt RGUI F12
-        &mt LCTRL PLUS  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR  &mt RCTRL MINUS
-        &mt LALT EQUAL  &kp N1  &kp N2  &kp N3   &kp N4  &kp N5    &kp N6     &kp N7    &kp N8    &kp N9    &kp N0    &trans
-                                        &trans   &trans  &trans    &trans     &trans    &trans
             >;
         };
     };
