@@ -48,6 +48,11 @@
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <21 22>;
         };
+
+        Change_Language {
+            bindings = <&kp LC(LA(SPACE))>;
+            key-positions = <16 17 18>;
+        };
     };
 
     macros {
